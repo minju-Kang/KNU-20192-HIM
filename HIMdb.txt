@@ -1,0 +1,84 @@
+create database him;
+use him;
+
+create table PATIENT_INFO (
+	Name VARCHAR(50) NOT NULL,
+	Id VARCHAR(50) NOT NULL,
+	Pw VARCHAR(50) NOT NULL,
+	Gender CHAR(1) NOT NULL,
+	Tel VARCHAR(20),
+	Address TEXT,
+	Code VARCHAR(50) NOT NULL,
+	PRIMARY KEY(Id)
+);
+
+create table DOCTOR_INFO (
+	Name VARCHAR(50) NOT NULL,
+	Id VARCHAR(50) NOT NULL,
+	Pw VARCHAR(50) NOT NULL,
+	Gender CHAR(1) NOT NULL,
+	Tel VARCHAR(20),
+	Address TEXT,
+	PRIMARY KEY(Id)
+);
+
+create table SHARED (
+	A_id VARCHAR(50),
+	B_id VARCHAR(50)
+);
+
+create table APPLY_SHARE (
+	A_id VARCHAR(50),
+	B_id VARCHAR(50)
+);
+
+create table PROFILE (
+	Id VARCHAR(50) NOT NULL,
+	Weight DECIMAL(5,2),
+	Food TEXT,
+	Steps INT,
+	Blood_Pressure SMALLINT,
+	Cholesterol SMALLINT,
+	Blood_Sugar SMALLINT,
+	Menstruation SMALLINT,
+	PRIMARY KEY(Id)
+);
+
+create table ADVERTISE (
+	Id VARCHAR(50) NOT NULL,
+	Name VARCHAR(50) NOT NULL,
+	StartDate DATE NOT NULL,
+	EndDate DATE NOT NULL,
+	Image LONGBLOB NOT NULL,
+	Title VARCHAR(30) NOT NULL,
+	Contents TEXT,
+	PRIMARY KEY(Id, Name)
+);
+
+create table SCHEDULE (
+	Id VARCHAR(50) NOT NULL,
+	Date DATE NOT NULL,
+	Title VARCHAR(30) NOT NULL,
+	Content TEXT,
+	PRIMARY KEY(Id, Date, Title)
+)
+
+create table EMERGENCY (
+	Id VARCHAR(50) NOT NULL,
+	Insurance TEXT,
+	Parental_Control VARCHAR(20),
+	PRIMARY KEY(Id)
+);
+
+create table CURRHEALTH (
+	Id VARCHAR(50) NOT NULL,
+	Drugs_in_use TEXT,
+	Vaccination TEXT,
+	Medical_Device TEXT,
+	Allergies TEXT,
+	Diseases TEXT,
+	PRIMARY KEY(Id)
+);
+
+create user 'HIM'@'%' identified by 'HIM';
+grant all privileges on HIM.* to 'HIM'@'%';
