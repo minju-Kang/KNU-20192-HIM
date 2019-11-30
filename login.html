@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login to HIM</title>
+    <style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        height: 100%;
+    }
+    body{
+        font-family:'Open Sans', Arial, sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        height: 100%;
+    }
+    .wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fafafa;
+    }
+    .login-form{
+        width: 350px;
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        padding: 2rem;
+        background: #ffffff;
+    }
+    .form-input{
+        background: #fafafa;
+        border: 1px solid #eeeeee;
+        padding: 12px;
+        width: 100%;
+    }
+    .form-group{
+        margin-bottom: 1rem;
+    }
+    .form-button{
+        background: #68a4c4;
+        border: 1px solid #ddd;
+        color: #ffffff;
+        padding: 10px;
+        width: 50%;
+        text-transform: uppercase;
+    }
+    .form-button:hover{
+        background: #69c8e7;
+    }
+    .form-header{
+        text-align: center;
+        margin-bottom : 2rem;
+    }
+    .form-footer{
+        text-align: center;
+    }
+    a{
+        font-family: 'Open Sans', Arial, sans-serif;
+        color: #ffffff;
+        text-decoration:none;
+    } 
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <form class="LOGIN to HIM" action="">
+            <div class="form-header">
+                <h3>Login to HIM</h3>
+                <p>Login to access your account</p>
+            </div>
+            <!--Email Input-->
+            <div class="form-group">
+                <input type="text" class="form-input" placeholder="email@example.com">
+            </div>
+            <!--Password Input-->
+            <div class="form-group">
+                <input type="password" class="form-input" placeholder="password">
+            </div>
+            <!--Login Button-->
+            <div class="form-group">
+                <button class="form-button" type="submit"><a href="P_login.html">Patient<br>Login</a></button><button class="form-button" type="submit"><a href="D_login.html">Doctor<br>Login</a></button>
+            </div>
+            <div class="form-footer">
+            Don't have an account? <a href="signup.html" style = "color: #68a4c4;">Sign Up</a>
+            </div>
+        </form>
+    </div><!--/.wrap-->
+</body>
+</html>
