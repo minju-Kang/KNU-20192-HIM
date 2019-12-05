@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+<?php 
+  session_start();
+  require_once 'connect_him.php';
+  $ID = $_SESSION['user_id'];
+?>
+
 <html lang="en">
 
 <head>
@@ -40,7 +47,7 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">My Info<b class=" icon-angle-down"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="record.html">Record</a></li>
+									<li><a href="P_record.php">Record</a></li>
 									<li><a href="sharing.html">Sharing</a></li>
 								</ul>
 							</li>
@@ -58,7 +65,7 @@
 						<ul class="breadcrumb">
 							<li><a href="P_login.html"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
 							<li class="active">My info</li>
-							<li class="active"><a href="record.html">Record</a></li>
+							<li class="active"><a href="P_record.php">Record</a></li>
 						</ul>
 						
 					</div>
@@ -73,20 +80,31 @@
 						<img src="img/dummies/dummy-1.jpg" alt="" class="align-left">
 						<span class="pullquote-left">
 						<dl class="dl-horizontal">
+							<?php
+								$sql = "select * from PATIENT_INFO where Id = '$ID';"; 
+								$result = mysqli_query($link, $sql);
+								$data = mysqli_fetch_assoc($result);
+							?>
 							<dt>NAME</dt>
-							<dd>userName</dd>
+							<dd> <?php echo $data['Name']; ?> </dd>
 							<dt>ID</dt>
-							<dd>userId</dd>
+							<dd> <?php echo $ID; ?> </dd>
 							<dt>GENDER</dt>
-							<dd>010-0000-0000</dd>
+							<dd> <?php echo $data['Gender']; ?> </dd>
 							<dt>BIRTHDAY</dt>
-							<dd>YYYY-MM-DD</dd>
+							<dd> <?php echo $data['Bdate']; ?> </dd>
 							<dt>TEL.</dt>
-							<dd>010-0000-0000</dd>
+							<dd> <?php echo $data['Tel']; ?> </dd>
 							<dt>ADDRESS</dt>
-							<dd>000, 000, 0000</dd>
+							<dd> <?php echo $data['Address']; ?> </dd>
+							<?php
+								$code = $data['Code'];
+								$sql = "select * from DOCTOR_INFO where Id = '$code';";
+								$result = mysqli_query($link, $sql);
+								$data = mysqli_fetch_assoc($result);
+							?>
 							<dt>FAMILY DOCTOR</dt>
-							<dd>doctorid</dd>
+							<dd> <?php echo $data['Name']; ?> </dd>
 
 						</dl>
 						</span>
@@ -96,30 +114,37 @@
 						<aside class="right-sidebar">
 						<h3>Basic <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></h3>
 						<dl class="dl-horizontal">
+							<?php
+								$sql = "select * from PROFILE where Id = '$ID';"; 
+								$result = mysqli_query($link, $sql);
+								$data = mysqli_fetch_assoc($result);
+							?>
 							<dt>Weight</dt>
-							<dd>00 kg</dd>
+							<dd> <?php echo $data['Weight']; ?> kg</dd>
 							<dt>food</dt>
-							<dd>맵고 짠 거 조~아</dd>
+							<dd> <?php echo $data['Food']; ?> </dd>
 							<dt>Steps</dt>
-							<dd>000 steps</dd>
+							<dd> <?php echo $data['Steps']; ?> steps</dd>
 							<dt>Blood Pressure</dt>
-							<dd>000 mmHg</dd>
+							<dd> <?php echo $data['Blood_Pressure']; ?> mmHg</dd>
 							<dt>Cholesterol</dt>
-							<dd>0.0 mmol/L</dd>
+							<dd> <?php echo $data['Cholesterol']; ?>  mmol/L</dd>
 							<dt>Blood Sugar</dt>
-							<dd>0.0 mmol/L</dd>
+							<dd> <?php echo $data['Blood_Sugar']; ?> mmol/L</dd>
 							<dt>Menstruation</dt>
-							<dd>Cycle: 00 days</dd>
-							<dd>Period: 0 days</dd>
+							<dd>Cycle: <?php echo $data['Menstruation']; ?> days</dd>
 						</dl>
 						<h3>Emergency <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></h3>
 						<dl class="dl-horizontal">
+							<?php
+								$sql = "select * from EMERGENCY where Id = '$ID';"; 
+								$result = mysqli_query($link, $sql);
+								$data = mysqli_fetch_assoc($result);
+							?>
 							<dt>Insurance</dt>
-							<dd>OO 보험회사</dd>
+							<dd> <?php echo $data['Insurance']; ?> </dd>
 							<dt>Parental Control</dt>
-							<dd>골다공증</dd>
-							<dd>당뇨병</dd>
-							<dd>피부암 등등~~</dd>
+							<dd> <?php echo $data['Parental_Control']; ?> </dd>
 						</dl>
 						</aside>
 					</div>
@@ -127,22 +152,21 @@
 						<aside class="right-sidebar">
 						<h3>Current Health Info. <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></h3>
 						<dl class="dl-horizontal">
+							<?php
+								$sql = "select * from CURRHEALTH where Id = '$ID';"; 
+								$result = mysqli_query($link, $sql);
+								$data = mysqli_fetch_assoc($result);
+							?>
 							<dt>Drug in Use</dt>
-							<dd>감기약</dd>
-							<dd>두통약</dd>
+							<dd> <?php echo $data['Drugs_in_use']; ?> </dd>
 							<dt>Vaccination</dt>
-							<dd>A형 간염</dd>
-							<dd>B형 간염</dd>
-							<dd>C형 간염</dd>
+							<dd> <?php echo $data['Vaccination']; ?> </dd>
 							<dt>Medical Device</dt>
-							<dd>교정기</dd>
+							<dd> <?php echo $data['Medical_Device']; ?> </dd>
 							<dt>Allergies</dt>
-							<dd>가지 알레르기</dd>
-							<dd>오이 알레르기</dd>
-							<dd>소설 알레르기</dd>
+							<dd> <?php echo $data['Allergies']; ?> </dd>
 							<dt>Diseases</dt>
-							<dd>감기</dd>
-							<dd>두통</dd>
+							<dd> <?php echo $data['Diseases']; ?> </dd>
 						</dl>
 						</aside>
 					</div>
