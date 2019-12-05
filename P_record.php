@@ -112,7 +112,7 @@
 					<!-- Horizontal Description -->
 					<div class="col-lg-4">
 						<aside class="right-sidebar">
-						<h3>Basic <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></h3>
+						<h3>Basic <a href="#"><i style="float:right;" class="fa fa-plus" aria-hidden="true"></i></a></h3>
 						<dl class="dl-horizontal">
 							<?php
 								$sql = "select * from PROFILE where Id = '$ID';"; 
@@ -133,8 +133,8 @@
 							<dd> <?php echo $data['Blood_Sugar']; ?> mmol/L</dd>
 							<dt>Menstruation</dt>
 							<dd>Cycle: <?php echo $data['Menstruation']; ?> days</dd>
-						</dl>
-						<h3>Emergency <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></h3>
+						</dl><br><br>
+						<h3>Emergency <a href="#"><i style="float:right;" class="fa fa-plus" aria-hidden="true"></i></a></h3>
 						<dl class="dl-horizontal">
 							<?php
 								$sql = "select * from EMERGENCY where Id = '$ID';"; 
@@ -150,7 +150,7 @@
 					</div>
 					<div class="col-lg-4">
 						<aside class="right-sidebar">
-						<h3>Current Health Info. <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></h3>
+						<h3>Current Health Info. <a href="#"><i style="float:right;" class="fa fa-plus" aria-hidden="true"></i></a></h3>
 						<dl class="dl-horizontal">
 							<?php
 								$sql = "select * from CURRHEALTH where Id = '$ID';"; 
