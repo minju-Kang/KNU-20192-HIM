@@ -58,10 +58,10 @@ create table ADVERTISE (
 
 create table SCHEDULE (
 	Id VARCHAR(50) NOT NULL,
-	Date DATE NOT NULL,
-	Title VARCHAR(30) NOT NULL,
-	Content TEXT,
-	PRIMARY KEY(Id, Date, Title)
+	Year YEAR NOT NULL,
+	Month TINYINT NOT NULL,
+	Date TINYINT NOT NULL,
+	Content TEXT
 )
 
 create table EMERGENCY (
