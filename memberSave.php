@@ -38,7 +38,11 @@ else{
   echo 'fail to insert sql';
 }
  
-
+ ?>      
+  <script>
+          alert("Sign Up - Success!~!");
+  </script>
+<?php
 echo "<script> document.location.href='login.html'; </script>";
 
 
