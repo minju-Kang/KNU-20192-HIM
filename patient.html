@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+<?php 
+  session_start();
+  require_once 'connect_him.php';
+  $ID = $_SESSION['user_id'];
+?>
+
 <html lang="en">
 
 <head>
@@ -44,7 +51,7 @@
 								</ul>
 							</li>
 							<li><a href="static.html">Static</a></li>
-							<li><a href="admin.html">Admin</a></li>
+							<li><a href="D_admin.html">Admin</a></li>
 							<li><a href="index.html">Logout</a></li>
 						</ul>
 					</div>
@@ -74,19 +81,21 @@
 						<img src="img/dummies/dummy-1.jpg" alt="" class="align-left">
 						<span class="pullquote-left">
 						<dl class="dl-horizontal">
+							<?php
+								$sql = "select * from DOCTOR_INFO where Id = '$ID';"; 
+								$result = mysqli_query($link, $sql);
+								$data = mysqli_fetch_assoc($result);
+							?>
 							<dt>NAME</dt>
-							<dd>userName</dd>
+							<dd> <?php echo $data['Name']; ?> </dd>
 							<dt>ID</dt>
-							<dd>userId</dd>
+							<dd> <?php echo $ID; ?> </dd>
 							<dt>GENDER</dt>
-							<dd>010-0000-0000</dd>
-							<dt>BIRTHDAY</dt>
-							<dd>YYYY-MM-DD</dd>
+							<dd> <?php echo $data['Gender']; ?> </dd>
 							<dt>TEL.</dt>
-							<dd>010-0000-0000</dd>
+							<dd> <?php echo $data['Tel']; ?> </dd>
 							<dt>ADDRESS</dt>
-							<dd>000, 000, 0000</dd>
-
+							<dd> <?php echo $data['Address']; ?> </dd>
 						</dl>
 						</span>
 					</div>
@@ -94,68 +103,28 @@
 						<aside class="right-sidebar">
 						
 						<h3>Patient List<h3>
-						<div class="col-lg-4">
-								<h5 class="widgetheading">minju <a href="#"><i class="fa fa-plus" aria-hidden="true" style="float:right;"></i></a></h5>
-								
+						<?php
+						      $sql = "select * from PATIENT_INFO where Code = '$ID'";
+						      $result = mysqli_query($link, $sql);
+						      while($row = mysqli_fetch_assoc($result)) {
+							$subsql = 'select diseases from CURRHEALTH where Id = "' . $row['Id'] . '"';
+							$subresult = mysqli_query($link, $subsql);
+							if($subresult) {
+							  $data = mysqli_fetch_assoc($subresult);
+							  echo '<div class="col-lg-4">
+								<h5 class="widgetheading">' . $row['Name'] . '<a href="#"><i class="fa fa-plus" aria-hidden="true" style="float:right;"></i></a></h5>
 								<ul class="recent">
-									<li>
-										<img src="img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-										<h6><a href="#">Disease</a></h6>
-										<p>
-											Cold
-										</p>
-									</li>
+								  <li>
+								    <img src="img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
+								    <h6><a href="#"> Disease</a></h6>
+								    <p>' . $data['diseases'] .
+								    '</p>
+								  </li>
 								</ul>
-						</div>
-						<div class="col-lg-4">
-								<h5 class="widgetheading">jiwon <a href="#"><i class="fa fa-plus" aria-hidden="true" style="float:right;"></i></a></h5>
-								<ul class="recent">
-									<li>
-										<img src="img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-										<h6><a href="#">Disease</a></h6>
-										<p>
-											Cold
-										</p>
-									</li>
-								</ul>
-						</div>
-						<div class="col-lg-4">
-								<h5 class="widgetheading">sujin <a href="#"><i class="fa fa-plus" aria-hidden="true" style="float:right;"></i></a></h5>
-								<ul class="recent">
-									<li>
-										<img src="img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-										<h6><a href="#">Disease</a></h6>
-										<p>
-											Cold
-										</p>
-									</li>
-								</ul>
-						</div>
-						<div class="col-lg-4">
-								<h5 class="widgetheading">aeri <a href="#"><i class="fa fa-plus" aria-hidden="true" style="float:right;"></i></a></h5>
-								
-								<ul class="recent">
-									<li>
-										<img src="img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-										<h6><a href="#">Disease</a></h6>
-										<p>
-											Colde
-										</p>
-									</li>
-								</ul>
-						</div>
-						<div class="col-lg-4">
-								<h5 class="widgetheading">mijoo <a href="#"><i class="fa fa-plus" aria-hidden="true" style="float:right;"></i></a></h5>
-								<ul class="recent">
-									<li>
-										<img src="img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-										<h6><a href="#">Disease</a></h6>
-										<p>
-											Cold
-										</p>
-									</li>
-								</ul>
-						</div>
+							    </div>';
+							}
+						      }
+						?>
 					</aside>
 					</div>
 					
