@@ -1,0 +1,1 @@
+C:\php 에 있는 php.ini파일에 들어가서 session.auto_start를 0에서 1로 만들어줘야 합니다.
