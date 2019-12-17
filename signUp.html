@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Sign Up to HIM</title>
+
     <style>
     *{
         margin:0;
@@ -33,6 +34,7 @@
         background: #ffffff;
     }
     .form-input{
+        font-family:'Open Sans', Arial, sans-serif;
         background: #fafafa;
         border: 1px solid #eeeeee;
         padding: 12px;
@@ -80,11 +82,18 @@
             </div>
             <!--Password Input-->
             <div class="form-group">
-                <input type="text" class="form-input" placeholder="Password" name="PW">
+                <input type="password" class="form-input" placeholder="Password" name="PW">
             </div>
 	<div class="form-group">
                 <input type="text" class="form-input" placeholder="Name" name="Name">
             </div>
+	<div class="form-group">
+		&nbsp;<a style="color: #000000">B-Date</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="date" class="form-input" id="currentDate" value="currentDate" min="1900-01-01" max="currentDate" name="Bdate" style="width: 75%;">
+	</div>
+	<script>
+  		document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);
+	</script>
             <div class="form-group">
                 &nbsp;<a style="color: #000000">Gender</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label><input type="radio" name="Gender" value="F">F</label>&nbsp;&nbsp;
@@ -113,6 +122,7 @@
 	</div>
 	
         </form>
+	
     </div><!--/.wrap-->
 </body>
 </html>
