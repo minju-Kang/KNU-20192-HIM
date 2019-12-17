@@ -44,15 +44,13 @@ create table PROFILE (
 	PRIMARY KEY(Id)
 );
 
-create table ADVERTISE (
+create table ADS (
 	Id VARCHAR(50) NOT NULL,
-	Name VARCHAR(50) NOT NULL,
-	StartDate DATE NOT NULL,
-	EndDate DATE NOT NULL,
+	StartDate VARCHAR(30) NOT NULL,
 	Image LONGBLOB NOT NULL,
-	Title VARCHAR(30) NOT NULL,
-	Contents TEXT,
-	PRIMARY KEY(Id, Name)
+	Subject VARCHAR(30) NOT NULL,
+	Content TEXT,
+	PRIMARY KEY(Id)
 );
 
 create table SCHEDULE (
