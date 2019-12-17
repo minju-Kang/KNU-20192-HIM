@@ -7,6 +7,7 @@
  $PW= $_POST['PW'];
  $Doc = $_POST['Doc'];
  $Name=$_POST['Name'];
+ $Bdate = $_POST['Bdate'];
  $Gender=$_POST['Gender'];
  $Tel=$_POST['Tel'];
  $Address=$_POST['Address'];
@@ -17,8 +18,8 @@ if($Doc==NO){
  $result = $link->query($searchCode);
  
  if($row = mysqli_fetch_row($result)){
-  $sql = "insert into patient_info (ID, PW, Name, Gender, Tel, Address, Code)";
-  $sql = $sql . "values('$ID','$PW','$Name','$Gender','$Tel','$Address','$Code')";
+  $sql = "insert into patient_info (ID, PW, Name, Bdate, Gender, Tel, Address, Code)";
+  $sql = $sql . "values('$ID','$PW','$Name', '$Bdate','$Gender','$Tel','$Address','$Code')";
  }
  else{
   echo "<script type='text/javascript'>alert('Code Not Found. Try Again');</script>";
@@ -27,10 +28,9 @@ if($Doc==NO){
  
 }
 else if($Doc==YES){
- $sql = "insert into doctor_info (ID, PW, Name, Gender, Tel, Address)";
- $sql = $sql . "values('$ID','$PW','$Name','$Gender','$Tel','$Address')";
+ $sql = "insert into doctor_info (ID, PW, Name, Bdate, Gender, Tel, Address)";
+ $sql = $sql . "values('$ID','$PW','$Name', '$Bdate', '$Gender','$Tel','$Address')";
 }
-
 if($link->query($sql)){
   echo 'success inserting';
 }
@@ -40,10 +40,8 @@ else{
  
  ?>      
   <script>
-          alert("Sign Up - Success!~!");
+          alert("Sign Up Success!");
   </script>
 <?php
 echo "<script> document.location.href='login.html'; </script>";
-
-
 ?>
