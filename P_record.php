@@ -91,6 +91,8 @@
 							<dd><?php echo $data['ID']; ?></dd>
 							<dt>GENDER</dt>
 							<dd><?php echo $data['Gender']; ?></dd>
+							<dt>BIRTHDAY</dt>
+ 							<dd><?php echo $data['Bdate']; echo "<br>";?></dd>
 							<dt>TEL.</dt>
 							<dd><?php echo $data['Tel']; ?></dd>
 							<dt>ADDRESS</dt>
