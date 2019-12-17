@@ -1,8 +1,9 @@
-<doctype html>
+
 <?php
+  session_start();
  require_once 'connect_him.php';
   
-	session_start();
+
   header('Content-Type: text/html; charset=UTF-8');
 
 
@@ -21,13 +22,13 @@
     
 		if(mysqli_num_rows($result)){
       $row = mysqli_fetch_assoc($result);
-     
-      //PW exist -> create Session
+      
+      //۱ڐڸȣС قՙ٩ ܼ݇ ܽܺ
                 if($row['PW']==$PW){
-                        $_SESSION['userid']=$ID;
-                        if(isset($_SESSION['userid'])){ 
+                        $_SESSION['userid']=$ID;//ܼ݇ߡ ID ze
+                        if(isset($_SESSION['userid'])){ //ID zeȟ߮ ? Ѹ׳ ۱ڸ ق՜хZӪ
                         ?>      <script>
-                                        alert("login success!");
+                                        alert("login success");
                                         location.replace("P_login.html");
                                 </script>
 <?php
@@ -73,10 +74,10 @@
 		if(mysqli_num_rows($result)){
       $row = mysqli_fetch_assoc($result);
       
-      //create session
+      //۱ڐڸȣС قՙ٩ ܼ݇ ܽܺ
                 if($row['PW']==$PW){
-                        $_SESSION['userid']=$ID;//store ID
-                        if(isset($_SESSION['userid'])){ 
+                        $_SESSION['userid']=$ID;//ܼ݇ߡ ID ze
+                        if(isset($_SESSION['userid'])){ //ID zeȟ߮ ? Ѹ׳ ۱ڸ ق՜хZӪ
                         ?>      <script>
                                         alert("login success");
                                         location.replace("D_login.html");
