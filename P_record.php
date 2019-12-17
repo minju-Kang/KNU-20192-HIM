@@ -82,16 +82,15 @@
 							<?php
 								$sql = "select * from PATIENT_INFO where Id = '$ID';"; 
 								$result = mysqli_query($link, $sql);
-								$data = mysqli_fetch_assoc($result);
+								if($result)
+                						  $data = mysqli_fetch_assoc($result);
 							?>
 							<dt>NAME</dt>
 							<dd><?php echo $data['Name']; ?></dd>
 							<dt>ID</dt>
-							<dd><?php echo $data['Id']; ?></dd>
+							<dd><?php echo $data['ID']; ?></dd>
 							<dt>GENDER</dt>
 							<dd><?php echo $data['Gender']; ?></dd>
-							<dt>BIRTHDAY</dt>
-							<dd><?php echo $data['Bdate']; echo "<br>";?></dd>
 							<dt>TEL.</dt>
 							<dd><?php echo $data['Tel']; ?></dd>
 							<dt>ADDRESS</dt>
@@ -110,7 +109,8 @@
 							<?php
 								$sql = "select * from PROFILE where Id = '$ID';"; 
 								$result = mysqli_query($link, $sql);
-								$data = mysqli_fetch_assoc($result);
+								if($result)
+                						  $data = mysqli_fetch_assoc($result);
 							?>
 							<dt>Weight</dt>
 							<dd><?php echo $data['Weight']; ?> kg</dd>
@@ -132,7 +132,8 @@
 							<?php
 								$sql = "select * from EMERGENCY where Id = '$ID';"; 
 								$result = mysqli_query($link, $sql);
-								$data = mysqli_fetch_assoc($result);
+								if($result)
+                						  $data = mysqli_fetch_assoc($result);
 							?>
 							<dt>Insurance</dt>
 							<dd><?php echo $data['Insurance']; ?></dd>
@@ -148,7 +149,8 @@
 							<?php
 								$sql = "select * from CURRHEALTH where Id = '$ID';"; 
 								$result = mysqli_query($link, $sql);
-								$data = mysqli_fetch_assoc($result);
+								if($result)
+                						  $data = mysqli_fetch_assoc($result);
 							?>
 							<dt>Drug in Use</dt>
 							<dd><?php echo $data['Drugs_in_use']; ?></dd>
