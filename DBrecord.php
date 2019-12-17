@@ -22,14 +22,14 @@
 			if($link->query($sql2)){
 			?>      
 			<script>
-							alert("Modify Success!");document.location.href='login.html';
+							alert("Modify Success!");document.location.href='P_login.html';
 			</script>
 			<?php
 			}
 			else{
 			?>
 			<script>
-							alert("Fail");history.back();
+							alert("Fail");document.location.href='P_login.html';
 			</script>
 
 			<?php
@@ -49,14 +49,14 @@
 			if($link->query($sql1)){
 			?>      
 			<script>
-							alert("Modify Success!");document.location.href='login.html';
+							alert("Modify Success!");document.location.href='P_login.html';
 			</script>
 			<?php
 			}
 			else{
 			?>
 			<script>
-							alert("Fail");history.back();
+							alert("Fail");document.location.href='P_login.html';
 			</script>
 
 			<?php
@@ -79,14 +79,14 @@
 		if($link->query($sql2)){
 			?>      
 			<script>
-							alert("Modify Success!");document.location.href='login.html';
+							alert("Modify Success!");document.location.href='P_login.html';
 			</script>
 		<?php
 		}
 		else{
 			?>
 		<script>
-							alert("Fail");history.back();
+							alert("Fail");document.location.href='P_login.html';
 			</script>
 
 		<?php
