@@ -2,25 +2,24 @@ create database him;
 use him;
 
 create table PATIENT_INFO (
+	ID VARCHAR(50) NOT NULL,
+	PW VARCHAR(50) NOT NULL,
 	Name VARCHAR(50) NOT NULL,
-	Id VARCHAR(50) NOT NULL,
-	Pw VARCHAR(50) NOT NULL,
-	Gender CHAR(1) NOT NULL,
+	Gender CHAR(1),
 	Tel VARCHAR(20),
 	Address TEXT,
 	Code VARCHAR(50) NOT NULL,
-	Bdate Date NOT NULL,
-	PRIMARY KEY(Id)
+	PRIMARY KEY(ID)
 );
 
 create table DOCTOR_INFO (
+	ID VARCHAR(50) NOT NULL,
+	PW VARCHAR(50) NOT NULL,
 	Name VARCHAR(50) NOT NULL,
-	Id VARCHAR(50) NOT NULL,
-	Pw VARCHAR(50) NOT NULL,
-	Gender CHAR(1) NOT NULL,
+	Gender CHAR(1),
 	Tel VARCHAR(20),
-	Address TEXT,
-	PRIMARY KEY(Id)
+	Address VARCHAR(50),
+	PRIMARY KEY(ID)
 );
 
 create table SHARED (
