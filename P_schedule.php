@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+<?php 
+  session_start();
+  require_once 'connect_him.php';
+  $ID = $_SESSION['user_id'];
+?>
+
 <html lang="en">
 
 <html>
@@ -389,23 +396,65 @@ function SetToToday(Which)
     function setData(){
         jsonData = 
         {
-            "2019":{
-                "07":{
-                    "17":"birthday"
+            <?php
+              $sql = "select * from SCHEDULE where Id = '$ID' order by 2, 3, 4;"; 
+              $result = mysqli_query($link, $sql);
+
+              $yArray = [];
+              $mArray = [];
+              $dArray = [];
+              $cArray = [];
+              
+              $isDiffY = [];
+              $isDiffM = [];
+              
+              while ($data = mysqli_fetch_assoc($result)) {
+                $yArray[] = $data['Year'];
+                $mArray[] = $data['Month'];
+                $dArray[] = $data['Date'];
+                $cArray[] = $data['Content'];
+              }
+
+              $cnt = count($yArray);
+              
+              for($i = 0; $i < $cnt - 1; $i++) {
+                if($yArray[$i] != $yArray[$i + 1]) {
+                  $isDiffY[] = 1;
+                  $isDiffM[] = 1;
                 }
-                ,"08":{
-                    "7":"칠석"
-                    ,"15":"광복절"
-                    ,"23":"처서"
+                
+                else  {
+                  $isDiffY[] = 0;
+                  if($mArray[$i] != $mArray[$i + 1])
+                    $isDiffM[] = 1; 
+                  else
+                    $isDiffM[] = 0;
+                }  
+              } 
+                
+              for($i = 0; $i < $cnt; $i++) {
+                if($i == 0 || $isDiffY[$i - 1])  
+                  echo '"' . $yArray[$i] . '" : {';
+                  
+                if($i == 0 || $isDiffM[$i - 1]) {
+                  if($mArray[$i] < 10)
+                    echo '"0';
+                  else  echo '"';
+                  echo $mArray[$i] . '" : {';
                 }
-                ,"09":{
-                    "13":"추석"
-                    ,"23":"추분"
-                }
-                ,"11":{
-                    "26":"software design"
-                }
-            }
+                  
+                echo '"' . $dArray[$i] . '" : ';
+                echo '"' . $cArray[$i] . '"';
+                
+                if($i == $cnt - 1 || $isDiffM[$i]) 
+                  echo '}';
+
+                if($i == $cnt - 1 || $isDiffY[$i])   
+                  echo '}';
+                if($i != $cnt - 1)
+                  echo ',';
+              }
+            ?>
         }
     }
     
