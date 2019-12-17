@@ -3,7 +3,7 @@
 <?php 
   session_start();
   require_once 'connect_him.php';
-  $ID = $_SESSION['user_id'];
+  $ID = $_SESSION['userid'];
 ?>
 
 <html lang="en">
@@ -176,17 +176,11 @@ function SetToToday(Which)
 					<div class="navbar-collapse collapse ">
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="D_login.html">HOME</a></li>
-							<li><a href="consulting.html">Consulting</a></li>
-							<li><a href="schedule.html">Schedule</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">My Info<b class=" icon-angle-down"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="profile.html">Profile</a></li>
-									<li><a href="patient.html">Patient</a></li>
-								</ul>
-							</li>
-							<li><a href="static.html">Static</a></li>
+							<li><a href="D_chat.html">Consulting</a></li>
+							<li><a href="D_schedule.html">Schedule</a></li>
 							<li><a href="admin.html">Admin</a></li>
+							<li><a href="static.html">Static</a></li>
+							<li><a href="ads.html">Ads</a></li>
 							<li><a href="index.html">Logout</a></li>
 						</ul>
 					</div>
