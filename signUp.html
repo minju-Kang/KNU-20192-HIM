@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up to HIM</title>
+
+    <style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        height: 100%;
+    }
+    body{
+        font-family:'Open Sans', Arial, sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        height: 100%;
+    }
+    .wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fafafa;
+    }
+    .login-form{
+        width: 350px;
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        padding: 2rem;
+        background: #ffffff;
+    }
+    .form-input{
+        font-family:'Open Sans', Arial, sans-serif;
+        background: #fafafa;
+        border: 1px solid #eeeeee;
+        padding: 12px;
+        width: 100%;
+    }
+    .form-group{
+        margin-bottom: 1rem;
+    }
+    .form-button{
+        background: #68a4c4;
+        border: 3px solid #fafafa;
+        color: #ffffff;
+        padding: 10px;
+        width: 50%;
+        text-transform: uppercase;
+    }
+    .form-button:hover{
+        background: #69c8e7;
+    }
+    .form-header{
+        text-align: center;
+        margin-bottom : 2rem;
+    }
+    .form-footer{
+        text-align: center;
+    }
+    a{
+        font-family: 'Open Sans', Arial, sans-serif;
+        color: #ffffff;
+        text-decoration:none;
+    } 
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <form name="join" method="post" action="memberSave.php">
+            <div class="form-header">
+	<br>
+                <h3>Sign Up to HIM</h3>
+                <p>Input Your Infomation</p>
+            </div>
+            <!--Email Input-->
+            <div class="form-group">
+                <input type="text" class="form-input" placeholder="ID or e-mail" name="ID">
+            </div>
+            <!--Password Input-->
+            <div class="form-group">
+                <input type="password" class="form-input" placeholder="Password" name="PW">
+            </div>
+	<div class="form-group">
+                <input type="text" class="form-input" placeholder="Name" name="Name">
+            </div>
+	<div class="form-group">
+		&nbsp;<a style="color: #000000">B-Date</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="date" class="form-input" id="currentDate" value="currentDate" min="1900-01-01" max="currentDate" name="Bdate" style="width: 75%;">
+	</div>
+	<script>
+  		document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);
+	</script>
+            <div class="form-group">
+                &nbsp;<a style="color: #000000">Gender</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input type="radio" name="Gender" value="F">F</label>&nbsp;&nbsp;
+                <label><input type="radio" name="Gender" value="M">M</label>
+           </div>
+	<div class="form-group">
+		<input type="text" class="form-input" placeholder="Tel" name="Tel">
+	</div>
+	<div class="form-group">
+		<input type="text" class="form-input" placeholder="Address" name="Address">
+	</div>
+	<div class = "form-group">
+		&nbsp;<a style="color: #000000">Doctor?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="Doc" value="YES">YES</label>&nbsp;&nbsp;
+		<label><input type="radio" name="Doc" value="NO">NO</label>
+	</div>
+	<div class="form-group">
+		<input type="text" class="form-input" placeholder="Code" name="Code">
+	</div>
+            <div class="form-footer">
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style = "color: #c3c3c3;">Check the Information Once More.</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+	<br>
+            <div class="form-group">
+	 <button class="form-button" type="submit" value="submit"><a>Submit</a><button class="form-button" style="background: #c3c3c3;" type="reset" value="rewrite"><a>Reset</a>
+	</div>
+	
+        </form>
+	
+    </div><!--/.wrap-->
+</body>
+</html>
