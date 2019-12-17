@@ -73,7 +73,7 @@ $ID = $_SESSION['userid'];
 </head>
 <body>
     <div class="wrap">
-	<form>
+	<form method = 'post' action = 'DBrecord.php'>
             <div class="form-header">
                 <h3>Record Info</h3>
             </div>
@@ -93,7 +93,7 @@ $ID = $_SESSION['userid'];
 					<input type="text" class="form-input" placeholder="Blood Pressure" name="blood">
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-input" placeholder="Cholesterol" name="Colesterol">
+					<input type="text" class="form-input" placeholder="Cholesterol" name="Cholesterol">
 				</div>
 				<div class="form-group">
 					<input type="text" class="form-input" placeholder="Blood Sugar" name="sugar">
@@ -102,7 +102,7 @@ $ID = $_SESSION['userid'];
 					<input type="text" class="form-input" placeholder="Menstruation" name="menstruation">
 				</div>
 				<div class="form-group">
-					<button class="form-button" type="submit" name="subbut" value="basic"><a href="DBrecord.php">SUBMIT</a></button>
+					<button class="form-button" type="submit" name="subbut" value="basic">SUBMIT</button>
 				</div>';
 			}
 			else if ($_POST['info'] == "emer")
@@ -114,7 +114,7 @@ $ID = $_SESSION['userid'];
 					<input type="text" class="form-input" placeholder="Parental Control" name="Parental">
 				</div>
 				<div class="form-group">
-					<button class="form-button" type="submit" name="subbut" value="emer"><a href="DBrecord.php">SUBMIT</a></button>
+					<button class="form-button" type="submit" name="subbut" value="emer">SUBMIT</button>
 				</div>';
 			}
 			else if ($_POST['info'] == "curr")
@@ -135,7 +135,7 @@ $ID = $_SESSION['userid'];
 					<input type="text" class="form-input" placeholder="Diseases" name="diseases">
 				</div>
 				<div class="form-group">
-					<button class="form-button" type="submit" name="subbut" value="curr"><a href="DBrecord.php">SUBMIN</a></button>
+					<button class="form-button" type="submit" name="subbut" value="curr">SUBMIT</button>
 				</div>';
 			}
             
