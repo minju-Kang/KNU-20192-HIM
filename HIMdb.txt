@@ -10,7 +10,6 @@ create table PATIENT_INFO (
 	Address TEXT,
 	Code VARCHAR(50) NOT NULL,
 	Bdate Date NOT NULL,
-	PRIMARY KEY(Id)
 	PRIMARY KEY(ID)
 );
 
