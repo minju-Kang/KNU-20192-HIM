@@ -1,0 +1,84 @@
+create database him;
+use him;
+
+create table PATIENT_INFO (
+	ID VARCHAR(50) NOT NULL,
+	PW VARCHAR(50) NOT NULL,
+	Name VARCHAR(50) NOT NULL,
+	Gender CHAR(1),
+	Tel VARCHAR(20),
+	Address TEXT,
+	Code VARCHAR(50) NOT NULL,
+	Bdate Date NOT NULL,
+	PRIMARY KEY(Id)
+	PRIMARY KEY(ID)
+);
+
+create table DOCTOR_INFO (
+	ID VARCHAR(50) NOT NULL,
+	PW VARCHAR(50) NOT NULL,
+	Name VARCHAR(50) NOT NULL,
+	Gender CHAR(1),
+	Tel VARCHAR(20),
+	Address VARCHAR(50),
+	PRIMARY KEY(ID)
+);
+
+create table SHARED (
+	A_id VARCHAR(50),
+	B_id VARCHAR(50)
+);
+
+create table APPLY_SHARE (
+	A_id VARCHAR(50),
+	B_id VARCHAR(50)
+);
+
+create table PROFILE (
+	Id VARCHAR(50) NOT NULL,
+	Weight DECIMAL(5,2),
+	Food TEXT,
+	Steps INT,
+	Blood_Pressure SMALLINT,
+	Cholesterol SMALLINT,
+	Blood_Sugar SMALLINT,
+	Menstruation SMALLINT,
+	PRIMARY KEY(Id)
+);
+
+create table ADS (
+	Id VARCHAR(50) NOT NULL,
+	StartDate VARCHAR(30) NOT NULL,
+	Image LONGBLOB NOT NULL,
+	Subject VARCHAR(30) NOT NULL,
+	Content TEXT,
+	PRIMARY KEY(Id)
+);
+
+create table SCHEDULE (
+	Id VARCHAR(50) NOT NULL,
+	Year YEAR NOT NULL,
+	Month TINYINT NOT NULL,
+	Date TINYINT NOT NULL,
+	Content TEXT
+)
+
+create table EMERGENCY (
+	Id VARCHAR(50) NOT NULL,
+	Insurance TEXT,
+	Parental_Control VARCHAR(20),
+	PRIMARY KEY(Id)
+);
+
+create table CURRHEALTH (
+	Id VARCHAR(50) NOT NULL,
+	Drugs_in_use TEXT,
+	Vaccination TEXT,
+	Medical_Device TEXT,
+	Allergies TEXT,
+	Diseases TEXT,
+	PRIMARY KEY(Id)
+);
+
+create user 'HIM'@'%' identified by 'HIM';
+grant all privileges on HIM.* to 'HIM'@'%';
