@@ -22,6 +22,16 @@
 	<!-- Theme skin -->
 	<link href="skins/default.css" rel="stylesheet" />
 
+<style>
+.form-button{
+        background: #ffffff;
+        border: 3px solid #ffffff;
+        color: #68a4c4;
+        padding: 5px;
+        width: 50px;
+        text-transform: uppercase;
+    }
+	</style>
 </head>
 
 <body>
@@ -82,17 +92,16 @@
 							<?php
 								$sql = "select * from PATIENT_INFO where Id = '$ID';"; 
 								$result = mysqli_query($link, $sql);
-								if($result)
-                						  $data = mysqli_fetch_assoc($result);
+								$data = mysqli_fetch_assoc($result);
 							?>
 							<dt>NAME</dt>
 							<dd><?php echo $data['Name']; ?></dd>
 							<dt>ID</dt>
-							<dd><?php echo $data['ID']; ?></dd>
+							<dd><?php echo $data['Id']; ?></dd>
 							<dt>GENDER</dt>
 							<dd><?php echo $data['Gender']; ?></dd>
 							<dt>BIRTHDAY</dt>
- 							<dd><?php echo $data['Bdate']; echo "<br>";?></dd>
+							<dd><?php echo $data['Bdate']; echo "<br>";?></dd>
 							<dt>TEL.</dt>
 							<dd><?php echo $data['Tel']; ?></dd>
 							<dt>ADDRESS</dt>
@@ -104,15 +113,15 @@
 						</span>
 					</div>
 					<!-- Horizontal Description -->
+					<form method="post" action="record_info.php">
 					<div class="col-lg-4">
 						<aside class="right-sidebar">
-						<h3>Basic <a href="#"><i class="fa fa-plus" aria-hidden="true" style="float:right;"></i></a></h3>
+						<h3>Basic <button class = "form-button" type="submit" name="info" value="basic" style="float:right; font-size: 35px;">+</button></h3>
 						<dl class="dl-horizontal">
 							<?php
 								$sql = "select * from PROFILE where Id = '$ID';"; 
 								$result = mysqli_query($link, $sql);
-								if($result)
-                						  $data = mysqli_fetch_assoc($result);
+								$data = mysqli_fetch_assoc($result);
 							?>
 							<dt>Weight</dt>
 							<dd><?php echo $data['Weight']; ?> kg</dd>
@@ -129,13 +138,12 @@
 							<dt>Menstruation</dt>
 							<dd>Cycle: <?php echo $data['Menstruation']; ?> days</dd>
 						</dl>
-						<h3>Emergency <a href="#"><i class="fa fa-plus" aria-hidden="true" style="float:right;"></i></a></h3>
+						<h3>Emergency <button class = "form-button" type="submit" name="info" value="emer" style="float:right; font-size: 35px;">+</button></h3></h3>
 						<dl class="dl-horizontal">
 							<?php
 								$sql = "select * from EMERGENCY where Id = '$ID';"; 
 								$result = mysqli_query($link, $sql);
-								if($result)
-                						  $data = mysqli_fetch_assoc($result);
+								$data = mysqli_fetch_assoc($result);
 							?>
 							<dt>Insurance</dt>
 							<dd><?php echo $data['Insurance']; ?></dd>
@@ -146,13 +154,12 @@
 					</div>
 					<div class="col-lg-4">
 						<aside class="right-sidebar">
-						<h3>Current Health Info. <a href="#"><i class="fa fa-plus" aria-hidden="true" style="float:right;"></i></a></h3>
+						<h3>Current Health Info. <button class = "form-button" type="submit" name="info" value="curr" style="float:right; font-size: 35px;">+</button></h3></h3>
 						<dl class="dl-horizontal">
 							<?php
 								$sql = "select * from CURRHEALTH where Id = '$ID';"; 
 								$result = mysqli_query($link, $sql);
-								if($result)
-                						  $data = mysqli_fetch_assoc($result);
+								$data = mysqli_fetch_assoc($result);
 							?>
 							<dt>Drug in Use</dt>
 							<dd><?php echo $data['Drugs_in_use']; ?></dd>
@@ -167,6 +174,7 @@
 						</dl>
 						</aside>
 					</div>
+					</form>
 				<!-- divider -->
 				<div class="row">
 					<div class="col-lg-12">
