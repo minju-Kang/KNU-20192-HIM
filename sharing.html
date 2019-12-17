@@ -20,6 +20,7 @@ $ID = $_SESSION['userid'];
 
 	<!-- Theme skin -->
 	<link href="skins/default.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -95,7 +96,7 @@ $ID = $_SESSION['userid'];
 							<dt>ADDRESS</dt>
 							<dd><?php echo $row['Address']; ?></dd>
 							
-							<dt>FAMILY DOCTOR</dt>
+							<dt>FAMILY DOCTOR ID</dt>
 							<dd><?php echo $row['Code']; ?></dd>
 							
 						</dl>
@@ -120,7 +121,7 @@ $ID = $_SESSION['userid'];
 							while ($row = mysqli_fetch_array($result)) {
 								echo "<div class=\"col-lg-4\"><h5 class=\"widgetheading\">ID: ";
 								echo $row['A_id'];
-								echo "<a href=\"#\" id=\"modal_open_btn\"><i class=\"fa fa-plus\" aria-hidden=\"true\" style=\"float:right;\"></i></a></h5>
+								echo "</h5>
 								<ul class=\"recent\">
 									<li>
 										<img src=\"img/dummies/blog/65x65/thumb1.jpg\" class=\"pull-left\" alt=\"\" />
@@ -128,8 +129,27 @@ $ID = $_SESSION['userid'];
 										<p>";
 											$sql3 = "select * from patient_info where Id = '$row[A_id]';";
 											$result3 = mysqli_query($link, $sql3);
-											$row = mysqli_fetch_array($result3);
-											echo $row['Tel'];
+											$row3 = mysqli_fetch_array($result3);
+											echo $row3['Tel'];
+											echo "<br><br>";
+											$sql4 = "select * from currhealth where Id = '$row[A_id]';";
+											$result4 = mysqli_query($link, $sql4);
+											$row4 = mysqli_fetch_assoc($result4);
+											echo "Drug in Use:  ";
+											echo $row4['Drugs_in_use'];
+											echo "<br>";
+											echo "Vaccination:  ";
+											echo $row4['Vaccination'];
+											echo "<br>";
+											echo "Medical Device:  ";
+											echo $row4['Medical_Device'];
+											echo "<br>";
+											echo "Allergies:  ";
+											echo $row4['Allergies'];
+											echo "<br>";
+											echo "Diseases:  ";
+											echo $row4['Diseases'];
+											echo "<br>";
 										echo"</p>
 									</li>
 								</ul>
@@ -138,7 +158,7 @@ $ID = $_SESSION['userid'];
 							while ($row2 = mysqli_fetch_array($result2)) {
 								echo "<div class=\"col-lg-4\"><h5 class=\"widgetheading\">ID: ";
 								echo $row2['B_id'];
-								echo "<a href=\"#\" id=\"modal_open_btn\"><i class=\"fa fa-plus\" aria-hidden=\"true\" style=\"float:right;\"></i></a></h5>
+								echo "</h5>
 								<ul class=\"recent\">
 									<li>
 										<img src=\"img/dummies/blog/65x65/thumb1.jpg\" class=\"pull-left\" alt=\"\" />
@@ -146,8 +166,27 @@ $ID = $_SESSION['userid'];
 										<p>";
 											$sql3 = "select * from patient_info where Id = '$row2[B_id]';";
 											$result3 = mysqli_query($link, $sql3);
-											$row = mysqli_fetch_array($result3);
-											echo $row['Tel'];
+											$row3 = mysqli_fetch_array($result3);
+											echo $row3['Tel'];
+											echo "<br><br>";
+											$sql4 = "select * from currhealth where Id = '$row2[B_id]';";
+											$result4 = mysqli_query($link, $sql4);
+											$row4 = mysqli_fetch_assoc($result4);
+											echo "Drug in Use:  ";
+											echo $row4['Drugs_in_use'];
+											echo "<br>";
+											echo "Vaccination:  ";
+											echo $row4['Vaccination'];
+											echo "<br>";
+											echo "Medical Device:  ";
+											echo $row4['Medical_Device'];
+											echo "<br>";
+											echo "Allergies:  ";
+											echo $row4['Allergies'];
+											echo "<br>";
+											echo "Diseases:  ";
+											echo $row4['Diseases'];
+											echo "<br>";
 										echo"</p>
 									</li>
 								</ul>
@@ -156,8 +195,10 @@ $ID = $_SESSION['userid'];
 						?>
 					</aside>
 					</div>
-					
 				</div>
+				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 		</section>
 		<footer>
 			<div class="container">
