@@ -3,7 +3,7 @@
 <?php 
   session_start();
   require_once 'connect_him.php';
-  $ID = $_SESSION['user_id'];
+  $ID = $_SESSION['userid'];
 ?>
 
 <html lang="en">
