@@ -23,10 +23,10 @@
 		if(mysqli_num_rows($result)){
       $row = mysqli_fetch_assoc($result);
       
-      //۱ڐڸȣС قՙ٩ ܼ݇ ܽܺ
+      //비밀번호가 맞다면 세션 생성
                 if($row['PW']==$PW){
-                        $_SESSION['userid']=$ID;//ܼ݇ߡ ID ze
-                        if(isset($_SESSION['userid'])){ //ID zeȟ߮ ? Ѹ׳ ۱ڸ ق՜хZӪ
+                        $_SESSION['userid']=$ID;//세션에 ID 저장
+                        if(isset($_SESSION['userid'])){ //ID 저장했어 ? 구럼 비번 맞단거자나
                         ?>      <script>
                                         alert("login success");
                                         location.replace("P_login.html");
@@ -74,10 +74,10 @@
 		if(mysqli_num_rows($result)){
       $row = mysqli_fetch_assoc($result);
       
-      //۱ڐڸȣС قՙ٩ ܼ݇ ܽܺ
+      //비밀번호가 맞다면 세션 생성
                 if($row['PW']==$PW){
-                        $_SESSION['userid']=$ID;//ܼ݇ߡ ID ze
-                        if(isset($_SESSION['userid'])){ //ID zeȟ߮ ? Ѹ׳ ۱ڸ ق՜хZӪ
+                        $_SESSION['userid']=$ID;//세션에 ID 저장
+                        if(isset($_SESSION['userid'])){ //ID 저장했어 ? 구럼 비번 맞단거자나
                         ?>      <script>
                                         alert("login success");
                                         location.replace("D_login.html");
